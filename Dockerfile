@@ -37,6 +37,12 @@ COPY --from=dev /openmrs/distribution/openmrs_modules /openmrs/distribution/open
 COPY --from=dev /openmrs/distribution/openmrs_owas /openmrs/distribution/openmrs_owas
 COPY --from=dev  /openmrs/distribution/openmrs_config /openmrs/distribution/openmrs_config
 
+# Copy WAR into the Tomcat webapps directory
+COPY --from=dev /openmrs/distribution/openmrs_core/openmrs.war /usr/local/tomcat/webapps/openmrs.war
+
+# Optional: suppress permission warning
+RUN mkdir -p /usr/local/tomcat/conf/Catalina/localhost
+
 ENV DB_HOST=${DB_HOST}
 ENV DB_PORT=${DB_PORT}
 ENV DB_NAME=${DB_NAME}
