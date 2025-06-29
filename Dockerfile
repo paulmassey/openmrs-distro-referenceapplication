@@ -54,7 +54,9 @@ ENV DB_NAME=${DB_NAME}
 ENV DB_USER=${DB_USER}
 ENV DB_PASSWORD=${DB_PASSWORD}
 
-CMD ["catalina.sh", "run"]
+CMD ["sh", "-c", "id && catalina.sh run"]
+
+#CMD ["catalina.sh", "run"]
 
 #CMD ["sh", "-c", "while ! echo > /dev/tcp/$DB_HOST/$DB_PORT; do echo waiting for database at $DB_HOST:$DB_PORT...; sleep 3; done; exec /start-openmrs.sh"]
 #CMD ["sh", "-c", "until nc -z $DB_HOST $DB_PORT; do echo waiting for database...; sleep 3; done; exec /start-openmrs.sh"]
