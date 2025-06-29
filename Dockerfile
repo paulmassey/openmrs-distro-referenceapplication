@@ -41,6 +41,8 @@ COPY --from=dev  /openmrs/distribution/openmrs_config /openmrs/distribution/open
 RUN mkdir -p /usr/local/tomcat/webapps
 COPY --from=dev /openmrs/distribution/openmrs_core/openmrs.war /usr/local/tomcat/webapps/openmrs.war
 
+RUN id
+
 # Optional: suppress permission warning
 RUN mkdir -p /usr/local/tomcat/conf/Catalina/localhost
 
