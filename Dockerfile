@@ -38,6 +38,7 @@ COPY --from=dev /openmrs/distribution/openmrs_owas /openmrs/distribution/openmrs
 COPY --from=dev  /openmrs/distribution/openmrs_config /openmrs/distribution/openmrs_config
 
 # Copy WAR into the Tomcat webapps directory
+RUN mkdir -p /usr/local/tomcat/webapps
 COPY --from=dev /openmrs/distribution/openmrs_core/openmrs.war /usr/local/tomcat/webapps/openmrs.war
 
 # Optional: suppress permission warning
