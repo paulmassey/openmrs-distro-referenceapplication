@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 
 ### Dev Stage
+RUN id
 FROM openmrs/openmrs-core:dev-amazoncorretto-17 AS dev
 WORKDIR /openmrs_distro
 
